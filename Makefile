@@ -5,7 +5,7 @@ build:
 	docker compose --project-name $(APP_NAME) build
 
 fuckoff:
-	docker stop $(FRONTEND_CONTAINER_NAME)
+	docker compose down
 
 run:
 	docker compose up
