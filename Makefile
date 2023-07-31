@@ -8,7 +8,7 @@ fuckoff:
 	docker compose down
 
 run:
-	docker compose up
+	docker compose up -d
 
 prettier:
 	npx prettier . --write
