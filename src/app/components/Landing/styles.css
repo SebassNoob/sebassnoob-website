@@ -1,0 +1,19 @@
+.landing {
+  overflow: auto;
+}
+
+.landing-bg {
+  width: 100%;
+  height: 100vh;
+  background-image: url("/landing.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  z-index: -1;
+}
+.landing-content {
+  display: flex;
+  flex-direction: column;
+  margin: 12vh 15vw 10vh 15vw;
+  gap: 5vh;
+}

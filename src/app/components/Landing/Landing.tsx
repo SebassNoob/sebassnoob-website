@@ -1,13 +1,20 @@
 import { Typography, Button } from "@mui/material";
+import "./styles.css";
 
 export const Landing = () => {
   return (
-    <>
-      <Typography color="primary">Let's build the future</Typography>
-      <Button variant="contained" color="primary">
-        Get Started
-      </Button>
-    </>
+    <div className="landing">
+      <div className="landing-bg" />
+      <div className="landing-content">
+        <Typography sx={{ display: "flex" }} color="primary" variant="h1">
+          Let's
+        </Typography>
+        <Typography sx={{ display: "flex" }} color="primary" variant="h1">
+          <span style={{ color: "yellow" }}>{"<code>"}</span>
+          the future
+        </Typography>
+      </div>
+    </div>
   );
 };
 

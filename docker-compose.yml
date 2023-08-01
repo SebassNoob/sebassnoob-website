@@ -32,7 +32,6 @@ services:
     ports:
       - 5000:5000
 
-
 networks:
   sebassnoob-website-network:
     name: ${APP_NAME}-network
