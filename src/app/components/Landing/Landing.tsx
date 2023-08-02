@@ -1,13 +1,19 @@
 import { Typography, Button } from "@mui/material";
+import { useEffect } from "react";
+import getBlogs from "@/app/api/fetchBlogs";
 import "./styles.css";
 
 export const Landing = () => {
+  useEffect(() => {
+    getBlogs();
+  }, []);
+
   return (
     <div className="landing">
       <div className="landing-bg" />
       <div className="landing-content">
         <Typography sx={{ display: "flex" }} color="primary" variant="h1">
-          Let's
+          l
         </Typography>
         <Typography sx={{ display: "flex" }} color="primary" variant="h1">
           <span style={{ color: "yellow" }}>{"<code>"}</span>
