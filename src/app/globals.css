@@ -4,3 +4,92 @@ body {
   background-color: black;
   margin: 0 !important;
 }
+
+.page-container {
+  --primary: white;
+  --secondary: rgb(100, 255, 218);
+  --rand: 0.5; /* Math.random() */
+}
+
+.load-in {
+  opacity: 0;
+  animation: load-in 0.3s forwards;
+  animation-delay: 1s;
+}
+
+@keyframes load-in {
+  0% {
+    opacity: 0.1;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.emphasis {
+  font-weight: bold;
+  color: var(--secondary);
+}
+
+
+.title {
+  font-weight: 500;
+  font-size: 5rem;
+}
+
+.subtitle {
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.description {
+  font-size: 1rem;
+}
+
+.button {
+  font-size: 1rem;
+}
+
+@media (max-width: 800px) {
+  .title {
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 0.75rem;
+  }
+
+  .button {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .description {
+    font-size: 0.5rem;
+  }
+
+  .button {
+    font-size: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  * {
+    animation: none !important;
+  }
+}

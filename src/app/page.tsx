@@ -1,18 +1,19 @@
 "use client";
 
-import Image from "next/image";
-import styles from "./page.module.css";
+import { MediaQueryProvider } from "./Providers/MediaQueryProvider";
 import Landing from "./components/Landing/Landing";
 import { ThemeProvider, createTheme, ThemeOptions } from "@mui/material/styles";
+import { useRef, useEffect } from "react";
+import "./globals.css";
 
 const themeOptions: ThemeOptions = {
   palette: {
     mode: "dark",
     primary: {
-      main: "#4b62cb",
+      main: "rgb(255, 255, 255)",
     },
     secondary: {
-      main: "#dce00e",
+      main: "rgb(100, 255, 218)",
     },
   },
   components: {
@@ -34,9 +35,21 @@ const themeOptions: ThemeOptions = {
 
 export default function Home() {
   const theme = createTheme(themeOptions);
+  const body = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (body.current) {
+      body.current.style.setProperty("--rand", String(Math.random()));
+    }
+  }); // no deps, will run every page render
+
   return (
-    <ThemeProvider theme={theme}>
-      <Landing />
-    </ThemeProvider>
+    <MediaQueryProvider>
+      <ThemeProvider theme={theme}>
+        <div className="page-container" ref={body}>
+          <Landing />
+        </div>
+      </ThemeProvider>
+    </MediaQueryProvider>
   );
 }
