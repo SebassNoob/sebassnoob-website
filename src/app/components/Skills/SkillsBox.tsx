@@ -1,6 +1,6 @@
 import { SvgIconComponent } from "@mui/icons-material";
 import "./skillsBox.css";
-import { useState } from "react";
+import { useState, useRef, forwardRef, useEffect } from "react";
 import { JSXProps } from "@/app/types";
 
 export interface SkillsBoxProps extends JSXProps {
@@ -9,9 +9,9 @@ export interface SkillsBoxProps extends JSXProps {
   description: string;
 }
 
-export const SkillsBox = (props: SkillsBoxProps) => {
+export const SkillsBox = forwardRef<HTMLDivElement, SkillsBoxProps>((props, ref) => {
   return (
-    <div className={`skills-box ${props.className}`}>
+    <div className={`skills-box ${props.className}`} ref={ref}>
       <div className="skills-box-content">
         <div style={{ display: "flex", alignItems: "center", gap: "2vw" }}>
           <div className="skills-box-icon">
@@ -25,21 +25,44 @@ export const SkillsBox = (props: SkillsBoxProps) => {
       </div>
     </div>
   );
-};
+})
 
 export const FlippableSkillsBox = (props: [SkillsBoxProps, SkillsBoxProps]) => {
   const [isFlipped, setIsFlipped] = useState(false);
+
+  // hacky way to make the box height equal to the height of the tallest card.
+
+  const box = useRef<HTMLDivElement>(null);
+  const front = useRef<HTMLDivElement>(null);
+  const back = useRef<HTMLDivElement>(null);
+
+  const calculateInnerHeight = () => {
+
+    if (front.current && back.current && box.current) {
+      const frontHeight = front.current.getBoundingClientRect().height;
+      const backHeight = back.current.getBoundingClientRect().height;
+      box.current.style.height = String(Math.max(frontHeight, backHeight)) + 'px';
+    }
+  };
+
+  useEffect(() =>
+    calculateInnerHeight()
+  , []);
+
+
   return (
-    <div className={`flippable-skills-box `}>
+    <div className='flippable-skills-box' ref={box}>
       <div
         className={`flippable-skills-box-inner ${isFlipped ? "flipped" : null}`}
         onClick={() => setIsFlipped(!isFlipped)}
       >
         <SkillsBox
+          ref={front}
           {...props[0]}
           className="flippable-skills-box-face flip-front"
         />
         <SkillsBox
+          ref={ back}
           {...props[1]}
           className="flippable-skills-box-face flip-back"
         />
