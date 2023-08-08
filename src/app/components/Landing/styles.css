@@ -1,11 +1,5 @@
-.landing {
-  overflow: auto;
-}
-
-
 .landing-content {
-  background-color: rgb(10, 25, 47);
-  padding: 10%;
+  padding: 10% 10% 0 10%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -57,11 +51,6 @@
     text-shadow: none;
     transform: none;
   }
-}
-
-.landing-less-important {
-  opacity: 0.75;
-  color: lightgrey;
 }
 
 .landing-image {

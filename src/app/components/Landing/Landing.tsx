@@ -1,27 +1,28 @@
 import { Typography, Button } from "@mui/material";
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, forwardRef } from "react";
 import getBlogs from "@/app/api/fetchBlogs";
 import { MediaQueryContext } from "@/app/Providers/MediaQueryProvider";
 import "./styles.css";
+import { JSXProps } from "@/app/types";
 
-export const Landing = () => {
+export const Landing = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
   useEffect(() => {
     getBlogs();
   }, []);
 
-  const { isDesktop } = useContext(MediaQueryContext);
+  const { breakpoints } = useContext(MediaQueryContext);
   return (
-    <div className="landing">
+    <div className={props.className} ref={ref}>
       <div className="landing-content">
         <div style={{ display: "flex", gap: "2vw", alignItems: "center" }}>
-          {isDesktop ? <div className="landing-image" /> : null}
+          {breakpoints.mobile ? <div className="landing-image" /> : null}
 
           <div>
-            <Typography className="description load-in" color="secondary">
+            <Typography className="description " color="secondary">
               Hello there! My name is
             </Typography>
 
-            <div className="title-container load-in">
+            <div className="title-container ">
               <Typography className="title " color="primary">
                 Sebassnoob.
               </Typography>
@@ -32,34 +33,33 @@ export const Landing = () => {
                 Sebassnoob.
               </Typography>
             </div>
-            <Typography className="subtitle load-in landing-less-important">
+            <Typography className="subtitle less-important">
               Student, Full stack developer, Bubble tea enjoyer.
             </Typography>
           </div>
         </div>
 
-        <Typography
-          variant="h5"
-          className="description landing-less-important load-in"
-        >
-          I'm focused on building the  
-          <span className="emphasis">{' '}next generation of websites </span>
-          and 
-          <span className="emphasis">{' '}user-oriented interfaces</span>
-          . Aspiring to become skilled at the
-          <span className="emphasis">{' '} magic </span> 
-           of the internet.
+        <Typography variant="h5" className="description less-important ">
+          I'm focused on building the
+          <span className="emphasis"> next generation of websites </span>
+          and
+          <span className="emphasis"> user-oriented interfaces</span>, aspiring
+          to become skilled at the
+          <span className="emphasis"> magic </span>
+          of the internet. I'm currently
+          <span className="emphasis"> studying </span>
+          for my A levels at Raffles Institution.
         </Typography>
         <Button
           variant="contained"
-          className="button landing-button load-in"
+          className="button landing-button "
           color="primary"
         >
-          Contact me
+          Let's talk!
         </Button>
       </div>
     </div>
   );
-};
+});
 
 export default Landing;
