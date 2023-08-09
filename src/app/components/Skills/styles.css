@@ -1,9 +1,9 @@
 .skills-content {
-  padding: 10%;
+  padding: 8%;
+  text-align: center;
 }
 
 .skills-title {
-  font-weight: bold;
   margin-bottom: 1vh;
 }
 
@@ -19,20 +19,9 @@
   margin-right: auto;
 }
 
-.skills-tooltip-icon-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid var(--primary);
-  border-radius: 50%;
-
-  height: calc(var(--title-size) * 0.3);
+.skills-desktop-tooltip {
+  height: var(--description-size);
   aspect-ratio: 1/1;
-}
-
-.skills-tooltip-icon {
-  width: 50%;
-  height: 50%;
 }
 @media (max-width: 1000px) {
   .skills-description {

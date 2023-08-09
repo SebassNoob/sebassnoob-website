@@ -61,41 +61,19 @@ export const Skills = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
   return (
     <div className={props.className} ref={ref}>
       <div className="skills-content">
-        {breakpoints.desktop ? (
-          <Badge
-            badgeContent={
-              <Tooltip
-                title={
-                  <Typography className="skills-subtitle description less-important">
-                    Click to
-                    <span className="emphasis"> flip </span>
-                    cards!
-                  </Typography>
-                }
-                placement="right"
-              >
-                <div className="skills-tooltip-icon-container">
-                  <img src="/sparkles.svg" className="skills-tooltip-icon" />
-                </div>
-              </Tooltip>
-            }
-          >
-            <Typography className="skills-title title" color="primary">
-              Skills
-            </Typography>
-          </Badge>
-        ) : (
-          <Typography className="skills-title title" color="primary">
-            Skills
-          </Typography>
-        )}
-
-        <Typography
-          className="skills-subtitle subtitle less-important"
-          color="primary"
-        >
-          These are some of the skills I've picked up over the years.
+        <Typography className="skills-title title" color="primary">
+          Skills
         </Typography>
+
+        <Typography className="skills-subtitle description less-important">
+          These are some things I've picked up over the years.
+        </Typography>
+        {breakpoints.desktop ? (
+          <Typography className="skills-subtitle description less-important">
+            <img src="/sparkles.svg" className="skills-desktop-tooltip" /> Click
+            to flip!
+          </Typography>
+        ) : null}
         <div className="skills-description">
           {breakpoints.tablet ? (
             skillsBoxContent

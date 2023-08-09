@@ -9,23 +9,25 @@ export interface SkillsBoxProps extends JSXProps {
   description: string;
 }
 
-export const SkillsBox = forwardRef<HTMLDivElement, SkillsBoxProps>((props, ref) => {
-  return (
-    <div className={`skills-box ${props.className}`} ref={ref}>
-      <div className="skills-box-content">
-        <div style={{ display: "flex", alignItems: "center", gap: "2vw" }}>
-          <div className="skills-box-icon">
-            <props.icon />
+export const SkillsBox = forwardRef<HTMLDivElement, SkillsBoxProps>(
+  (props, ref) => {
+    return (
+      <div className={`skills-box ${props.className}`} ref={ref}>
+        <div className="skills-box-content">
+          <div style={{ display: "flex", alignItems: "center", gap: "2vw" }}>
+            <div className="skills-box-icon">
+              <props.icon />
+            </div>
+            <div className="skills-box-title subtitle">{props.title}</div>
           </div>
-          <div className="skills-box-title subtitle">{props.title}</div>
-        </div>
-        <div className="skills-box-description description">
-          {props.description}
+          <div className="skills-box-description description">
+            {props.description}
+          </div>
         </div>
       </div>
-    </div>
-  );
-})
+    );
+  },
+);
 
 export const FlippableSkillsBox = (props: [SkillsBoxProps, SkillsBoxProps]) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -37,21 +39,31 @@ export const FlippableSkillsBox = (props: [SkillsBoxProps, SkillsBoxProps]) => {
   const back = useRef<HTMLDivElement>(null);
 
   const calculateInnerHeight = () => {
-
     if (front.current && back.current && box.current) {
       const frontHeight = front.current.getBoundingClientRect().height;
       const backHeight = back.current.getBoundingClientRect().height;
-      box.current.style.height = String(Math.max(frontHeight, backHeight)) + 'px';
+      box.current.style.height =
+        String(Math.max(frontHeight, backHeight)) + "px";
     }
   };
 
-  useEffect(() =>
-    calculateInnerHeight()
-  , []);
+  const calculateRelativeMousePosition = (e: MouseEvent) => {
+    const boxRect = box.current?.getBoundingClientRect();
 
+    const x = e.clientX - boxRect!.left;
+    const y = e.clientY - boxRect!.top;
+
+    box.current?.style.setProperty("--mouse-x", String(x) + "px");
+    box.current?.style.setProperty("--mouse-y", String(y) + "px");
+  };
+
+  useEffect(() => {
+    calculateInnerHeight();
+    box.current?.addEventListener("mousemove", calculateRelativeMousePosition);
+  }, []);
 
   return (
-    <div className='flippable-skills-box' ref={box}>
+    <div className="flippable-skills-box" ref={box}>
       <div
         className={`flippable-skills-box-inner ${isFlipped ? "flipped" : null}`}
         onClick={() => setIsFlipped(!isFlipped)}
@@ -62,7 +74,7 @@ export const FlippableSkillsBox = (props: [SkillsBoxProps, SkillsBoxProps]) => {
           className="flippable-skills-box-face flip-front"
         />
         <SkillsBox
-          ref={ back}
+          ref={back}
           {...props[1]}
           className="flippable-skills-box-face flip-back"
         />

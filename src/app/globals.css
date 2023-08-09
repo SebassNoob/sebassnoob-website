@@ -13,6 +13,7 @@ body {
 .page-container {
   --primary: white;
   --secondary: rgb(100, 255, 218);
+  --background-color: rgb(10, 25, 47);
   --rand: 0.5; /* Math.random() */
 
   --title-size: 5rem;
