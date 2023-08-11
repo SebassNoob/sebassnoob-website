@@ -40,7 +40,7 @@
 
 .flippable-skills-box-face::before {
   border-radius: 10px;
-  content: "";
+  content: '';
   height: 100%;
   left: 0px;
   opacity: 0;
@@ -82,7 +82,7 @@
 .skills-box-title::after {
   position: absolute;
   z-index: -1;
-  content: "";
+  content: '';
   display: block;
   width: 70%;
   height: 0.3rem;

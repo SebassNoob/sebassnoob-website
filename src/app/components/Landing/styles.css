@@ -25,15 +25,6 @@
   --glitch-translate: -8px;
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: top left;
-  }
-  100% {
-    background-position: top right;
-  }
-}
-
 @keyframes glitch {
   0% {
     text-shadow:
@@ -58,7 +49,7 @@
   height: 20vh;
 
   aspect-ratio: 1/1;
-  background-image: url("/pfp.webp");
+  background-image: url('/pfp.webp');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

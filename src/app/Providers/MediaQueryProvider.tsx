@@ -1,5 +1,5 @@
-import { createContext, ReactNode, useMemo } from "react";
-import { useMediaQuery } from "@mui/material";
+import { createContext, ReactNode, useMemo } from 'react';
+import { useMediaQuery } from '@mui/material';
 
 const MediaQueryContext = createContext({
   breakpoints: {
@@ -11,9 +11,9 @@ const MediaQueryContext = createContext({
 
 const MediaQueryProvider = ({ children }: { children: ReactNode }) => {
   const breakpoints = {
-    mobile: useMediaQuery("(min-width: 600px)"),
-    tablet: useMediaQuery("(max-width: 1000px)"),
-    desktop: useMediaQuery("(min-width: 1000px)"),
+    mobile: useMediaQuery('(min-width: 600px)'),
+    tablet: useMediaQuery('(max-width: 1000px)'),
+    desktop: useMediaQuery('(min-width: 1000px)'),
   };
 
   const value = useMemo(() => ({ breakpoints }), [breakpoints]);
