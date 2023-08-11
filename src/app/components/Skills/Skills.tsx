@@ -65,15 +65,17 @@ export const Skills = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
           Skills
         </Typography>
 
-        <Typography className='skills-subtitle description less-important'>
-          These are some things I've picked up over the years.
-        </Typography>
         {breakpoints.desktop ? (
           <Typography className='skills-subtitle description less-important'>
+            These are some things I've picked up over the years.{' '}
             <img src='/sparkles.svg' className='skills-desktop-tooltip' /> Click
             to flip!
           </Typography>
-        ) : null}
+        ) : (
+          <Typography className='skills-subtitle description less-important'>
+            These are some things I've picked up over the years.
+          </Typography>
+        )}
         <div className='skills-description'>
           {breakpoints.tablet ? (
             skillsBoxContent
