@@ -80,7 +80,6 @@
 }
 
 .skills-box-title::after {
-  position: absolute;
   z-index: -1;
   content: '';
   display: block;

@@ -1,6 +1,6 @@
 'use client';
 
-import './page.module.css';
+import './page.css';
 import { MediaQueryProvider } from './Providers/MediaQueryProvider';
 import Landing from './components/Landing/Landing';
 import Skills from './components/Skills/Skills';
@@ -62,7 +62,7 @@ export default function Home() {
       document.body.style.backgroundColor = 'rgb(10, 25, 47)';
       body.current?.style.setProperty('--primary', 'rgb(255,255,255)');
       body.current?.style.setProperty('--secondary', 'rgb(100, 255, 218)');
-      body.current?.style.setProperty('--less-important', 'grey');
+      body.current?.style.setProperty('--less-important', 'lightgrey');
       body.current?.style.setProperty('--background-color', 'rgb(10, 25, 47)');
     } else {
       document.body.style.backgroundColor = 'rgb(255, 255, 255)';

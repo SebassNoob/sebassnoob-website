@@ -11,6 +11,10 @@ body {
   margin: 0 !important;
 }
 
+* {
+  transition: all 0.2s ease-out;
+}
+
 .page-container {
   --primary: white;
   --secondary: rgb(100, 255, 218);
@@ -30,7 +34,7 @@ body {
 .load-in {
   opacity: 0;
   animation: load-in 0.3s forwards ease-out;
-  animation-delay: 0.7s;
+  animation-delay: 0.5s;
 }
 
 @keyframes load-in {
@@ -123,5 +127,6 @@ body {
 @media (prefers-reduced-motion) {
   * {
     animation: none !important;
+    transition: none !important;
   }
 }
