@@ -74,4 +74,5 @@ export const Projects = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
   );
 });
 
+Projects.displayName = 'Projects';
 export default Projects;

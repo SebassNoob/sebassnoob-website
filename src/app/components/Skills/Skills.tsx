@@ -1,15 +1,16 @@
-import { Typography, Tooltip, Badge } from '@mui/material';
+import { Typography } from '@mui/material';
 import CodeIcon from '@mui/icons-material/Code';
 import TerminalIcon from '@mui/icons-material/Terminal';
 import BrushIcon from '@mui/icons-material/Brush';
 import DataObjectIcon from '@mui/icons-material/DataObject';
 import DnsIcon from '@mui/icons-material/Dns';
 import LockIcon from '@mui/icons-material/Lock';
-import { useEffect, useContext, forwardRef } from 'react';
+import { useContext, forwardRef } from 'react';
 import { FlippableSkillsBox, SkillsBox, SkillsBoxProps } from './SkillsBox';
 import './styles.css';
 import { JSXProps } from '@/app/types';
 import { MediaQueryContext } from '@/app/Providers/MediaQueryProvider';
+import Image from 'next/image';
 
 export const Skills = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
   const { breakpoints } = useContext(MediaQueryContext);
@@ -68,7 +69,7 @@ export const Skills = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
         {breakpoints.desktop ? (
           <Typography className='skills-subtitle description less-important'>
             These are some things I've picked up over the years.{' '}
-            <img src='/sparkles.svg' className='skills-desktop-tooltip' /> Click
+            <Image src='/sparkles.svg' className='skills-desktop-tooltip' alt='sparkles'/> Click
             to flip!
           </Typography>
         ) : (
@@ -107,4 +108,5 @@ export const Skills = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
   );
 });
 
+Skills.displayName = 'Skills';
 export default Skills;

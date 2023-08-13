@@ -2,6 +2,7 @@ import { SvgIconComponent } from '@mui/icons-material';
 import './skillsBox.css';
 import { useState, useRef, forwardRef, useEffect } from 'react';
 import { JSXProps } from '@/app/types';
+import Skills from './Skills';
 
 export interface SkillsBoxProps extends JSXProps {
   icon: SvgIconComponent;
@@ -88,3 +89,6 @@ export const FlippableSkillsBox = (props: [SkillsBoxProps, SkillsBoxProps]) => {
     </div>
   );
 };
+
+SkillsBox.displayName = 'SkillsBox';
+FlippableSkillsBox.displayName = 'FlippableSkillsBox';
