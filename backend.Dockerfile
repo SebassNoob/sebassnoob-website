@@ -7,12 +7,10 @@ ENV PYTHONUNBUFFERED 1
 
 RUN apt-get update && apt-get install -y build-essential libffi-dev
 
-COPY --link server ./server
-
+COPY --link api ./api
+COPY --link requirements.txt ./requirements.txt
 
 RUN pip install --no-cache-dir --upgrade pip
-RUN pip install --no-cache-dir --default-timeout=100 -r ./server/requirements.txt
+RUN pip install --no-cache-dir --default-timeout=100 -r ./requirements.txt
 
-
-
-CMD python server/index.py
+CMD flask run  --host=0.0.0.0 -p 5000

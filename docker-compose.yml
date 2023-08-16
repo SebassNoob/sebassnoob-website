@@ -18,7 +18,7 @@ services:
       - ./next.config.js:/app/next.config.js
     restart: always
     ports:
-      - 3000:3000
+      - ${FRONTEND_PORT}:${FRONTEND_PORT}
   backend:
     container_name: ${BACKEND_CONTAINER_NAME}
     build:
@@ -29,10 +29,10 @@ services:
     env_file:
       - .env
     volumes:
-      - ./server:/app/server
+      - ./api:/app/api
     restart: always
     ports:
-      - 5000:5000
+      - ${BACKEND_PORT}:${BACKEND_PORT}
 
 networks:
   sebassnoob-website-network:

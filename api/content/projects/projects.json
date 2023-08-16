@@ -1,0 +1,8 @@
+{
+  "test_project": {
+    "description": "A test project for the endpoint",
+    "tags": ["test", "project"],
+    "image": "./images/placeholder.jpg",
+    "redirect": "http://www.google.com"
+  }
+}

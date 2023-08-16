@@ -23,14 +23,13 @@
 }
 
 .flippable-skills-box-face {
-  background-color: var(--background-color);
-
   position: absolute;
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
 }
 
 .skills-box {
+  background-color: var(--background-color);
   text-align: start;
   border: 2px solid var(--primary);
   border-radius: 10px;

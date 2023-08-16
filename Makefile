@@ -15,3 +15,6 @@ prettier:
 
 lint:
 	npm run lint
+
+deploy:
+	vercel --prod --yes 

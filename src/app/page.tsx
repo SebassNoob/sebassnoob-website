@@ -68,7 +68,7 @@ export default function Home() {
       document.body.style.backgroundColor = 'rgb(255, 255, 255)';
       body.current?.style.setProperty('--primary', 'rgb(0,0,0)');
       body.current?.style.setProperty('--secondary', 'rgb(238, 103, 35)');
-      body.current?.style.setProperty('--less-important', 'grey');
+      body.current?.style.setProperty('--less-important', 'rgb(56,56,56)');
       body.current?.style.setProperty(
         '--background-color',
         'rgb(255, 255, 255)',
