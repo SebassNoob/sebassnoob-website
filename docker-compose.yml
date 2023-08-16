@@ -14,7 +14,7 @@ services:
     volumes:
       - ./src:/app/src
       - ./public:/app/public
-      - ./.env.local:/app/.env.local
+      - ./.env.development:/app/.env.development
       - ./next.config.js:/app/next.config.js
     restart: always
     ports:

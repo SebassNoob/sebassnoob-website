@@ -1,13 +1,13 @@
 import { Typography, Button } from '@mui/material';
 import { useEffect, useContext, forwardRef } from 'react';
-import getBlogs from '@/app/api/fetchBlogs';
+import getProjects from '@/app/api/Projects';
 import { MediaQueryContext } from '@/app/Providers/MediaQueryProvider';
 import './styles.css';
 import { JSXProps } from '@/app/types';
 
 export const Landing = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
   useEffect(() => {
-    getBlogs();
+    getProjects();
   }, []);
 
   const { breakpoints } = useContext(MediaQueryContext);

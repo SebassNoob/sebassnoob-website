@@ -37,9 +37,6 @@ export const Projects = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
     }rad)`;
   };
 
-  
-  
-
   useEffect(() => {
     // debounce window resize then recalculate carousel item offset
     let timeOutFunctionId: NodeJS.Timeout;
@@ -66,25 +63,30 @@ export const Projects = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
         <Typography className='projects-description description less-important'>
           Some stuff I've built.
         </Typography>
-        
+
         <div className='projects-carousel-container'>
-        <IconButton className='projects-carousel-controls-button' onClick={() => setCarouselItemIdx(carouselItemIdx - 1)}>
-              <ArrowLeftIcon/>
-            </IconButton>
-        <div className='projects-carousel-scene'>
-          <div className='projects-carousel'>
-            <div className='projects-carousel-item'>1</div>
-            <div className='projects-carousel-item'>2</div>
-            <div className='projects-carousel-item'>3</div>
-            <div className='projects-carousel-item'>4</div>
-            <div className='projects-carousel-item'>5</div>
+          <IconButton
+            className='projects-carousel-controls-button'
+            onClick={() => setCarouselItemIdx(carouselItemIdx - 1)}
+          >
+            <ArrowLeftIcon />
+          </IconButton>
+          <div className='projects-carousel-scene'>
+            <div className='projects-carousel'>
+              <div className='projects-carousel-item'>1</div>
+              <div className='projects-carousel-item'>2</div>
+              <div className='projects-carousel-item'>3</div>
+              <div className='projects-carousel-item'>4</div>
+              <div className='projects-carousel-item'>5</div>
+            </div>
           </div>
+          <IconButton
+            className='projects-carousel-controls-button'
+            onClick={() => setCarouselItemIdx(carouselItemIdx + 1)}
+          >
+            <ArrowRightIcon />
+          </IconButton>
         </div>
-        <IconButton className='projects-carousel-controls-button' onClick={() => setCarouselItemIdx(carouselItemIdx + 1)}>
-              <ArrowRightIcon />
-            </IconButton>
-        </div>
-        
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ RUN npm ci;
 COPY --link src ./src
 COPY --link public ./public
 COPY --link next.config.js .
-COPY --link .env.local .
+COPY --link .env.development .
 COPY --link tsconfig.json .
 
 # Next.js collects completely anonymous telemetry data about general usage. Learn more here: https://nextjs.org/telemetry
