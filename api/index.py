@@ -1,6 +1,6 @@
 import dotenv
 dotenv.load_dotenv('../.env')
-import os
+from service.projects import get_projects
 
 from flask import Flask
 from flask_cors import CORS, cross_origin
@@ -16,4 +16,6 @@ def main():
 
 @app.route('/api/get_all_projects')
 def blogposts():
-  return "projects"
+  
+  return get_projects()
+  

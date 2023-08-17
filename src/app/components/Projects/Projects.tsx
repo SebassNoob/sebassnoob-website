@@ -1,13 +1,15 @@
 import React, { forwardRef, useEffect, useState, useContext } from 'react';
 import { MediaQueryContext } from '@/app/Providers/MediaQueryProvider';
-import { Typography, Button, IconButton } from '@mui/material';
+import { Typography, IconButton } from '@mui/material';
+import getProjects from '@/app/api/Projects';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import { JSXProps } from '@/app/types';
+import { JSXProps, Project } from '@/app/types';
 import './styles.css';
 
 export const Projects = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
   const [carouselItemIdx, setCarouselItemIdx] = useState(0);
+  const [projects, setProjects] = useState<Project[]>([]);
   const { breakpoints } = useContext(MediaQueryContext);
 
   const calculateCarousellItemOffset = (idx: number) => {
@@ -38,6 +40,8 @@ export const Projects = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
   };
 
   useEffect(() => {
+    getProjects().then((res) => setProjects(res));
+
     // debounce window resize then recalculate carousel item offset
     let timeOutFunctionId: NodeJS.Timeout;
 
@@ -51,7 +55,7 @@ export const Projects = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
 
   useEffect(
     () => calculateCarousellItemOffset(carouselItemIdx),
-    [carouselItemIdx],
+    [carouselItemIdx, projects],
   );
 
   return (
@@ -73,11 +77,21 @@ export const Projects = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
           </IconButton>
           <div className='projects-carousel-scene'>
             <div className='projects-carousel'>
-              <div className='projects-carousel-item'>1</div>
-              <div className='projects-carousel-item'>2</div>
-              <div className='projects-carousel-item'>3</div>
-              <div className='projects-carousel-item'>4</div>
-              <div className='projects-carousel-item'>5</div>
+              {
+                projects.map((project, idx) => (
+                  <div key={idx} onClick={() => window.open(project.redirect, "_blank")} className={idx === carouselItemIdx % projects.length ? 'projects-carousel-item projects-carousel-item-selected': 'projects-carousel-item'}>
+                    <div className='projects-carousel-item-content' >
+                      <project.image className='projects-carousel-item-img'/>
+                      <Typography className='title' color='secondary'>
+                        {project.title}
+                      </Typography>
+                      <Typography className='description less-important'>
+                        {project.description}
+                      </Typography>
+                    </div>
+                  </div>
+                ))
+              }
             </div>
           </div>
           <IconButton

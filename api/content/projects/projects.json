@@ -2,7 +2,49 @@
   "test_project": {
     "description": "A test project for the endpoint",
     "tags": ["test", "project"],
-    "image": "./images/placeholder.jpg",
+    "image": "projects/placeholder.jpg",
+    "redirect": "http://www.google.com"
+  },
+  "test_project2": {
+    "description": "A test project for the endpoint",
+    "tags": ["test", "project"],
+    "image": "projects/placeholder.jpg",
+    "redirect": "http://www.google.com"
+  },
+  "test_project3": {
+    "description": "A test project for the endpoint",
+    "tags": ["test", "project"],
+    "image": "projects/placeholder.jpg",
+    "redirect": "http://www.google.com"
+  },
+  "test_project4": {
+    "description": "A test project for the endpoint",
+    "tags": ["test", "project"],
+    "image": "projects/placeholder.jpg",
+    "redirect": "http://www.google.com"
+  },
+  "test_project5": {
+    "description": "A test project for the endpoint",
+    "tags": ["test", "project"],
+    "image": "projects/placeholder.jpg",
+    "redirect": "http://www.google.com"
+  },
+  "test_project6": {
+    "description": "A test project for the endpoint",
+    "tags": ["test", "project"],
+    "image": "projects/placeholder.jpg",
+    "redirect": "http://www.google.com"
+  },
+  "test_project7": {
+    "description": "A test project for the endpoint",
+    "tags": ["test", "project"],
+    "image": "projects/placeholder.jpg",
+    "redirect": "http://www.google.com"
+  },
+  "test_project8": {
+    "description": "A test project for the endpoint",
+    "tags": ["test", "project"],
+    "image": "projects/placeholder.jpg",
     "redirect": "http://www.google.com"
   }
 }
