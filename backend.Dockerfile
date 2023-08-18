@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y build-essential libffi-dev
 
 COPY --link api ./api
 COPY --link requirements.txt ./requirements.txt
+COPY --link service ./service
 
 RUN pip install --no-cache-dir --upgrade pip
 RUN pip install --no-cache-dir --default-timeout=100 -r ./requirements.txt

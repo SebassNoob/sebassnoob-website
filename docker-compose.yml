@@ -14,7 +14,6 @@ services:
     volumes:
       - ./src:/app/src
       - ./public:/app/public
-      - ./.env.development:/app/.env.development
       - ./next.config.js:/app/next.config.js
     restart: always
     ports:
@@ -30,6 +29,7 @@ services:
       - .env
     volumes:
       - ./api:/app/api
+      - ./service:/app/service
     restart: always
     ports:
       - ${BACKEND_PORT}:${BACKEND_PORT}
