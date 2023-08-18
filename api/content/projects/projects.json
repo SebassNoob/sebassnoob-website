@@ -1,50 +1,44 @@
 {
-  "test_project": {
-    "description": "A test project for the endpoint",
-    "tags": ["test", "project"],
-    "image": "projects/placeholder.jpg",
-    "redirect": "http://www.google.com"
+  "annoybot": {
+    "description": "A discord bot that is great for laughs and annoying your friends. Built with discord.py and has scaled to 1500 servers.",
+    "tags": ["discord.py", "SQLite3"],
+    "image": "projects/annoybot.png",
+    "redirect": "https://github.com/SebassNoob/bot"
   },
-  "test_project2": {
-    "description": "A test project for the endpoint",
-    "tags": ["test", "project"],
-    "image": "projects/placeholder.jpg",
-    "redirect": "http://www.google.com"
+  "Holy Grail (web)": {
+    "description": "A website that indexes resources for students in Singapore. Huge team project with 8+ people.",
+    "tags": ["FastApi", "Vite", "Docker"],
+    "image": "projects/holygrail.png",
+    "redirect": "https://grail.moe"
   },
-  "test_project3": {
-    "description": "A test project for the endpoint",
-    "tags": ["test", "project"],
-    "image": "projects/placeholder.jpg",
-    "redirect": "http://www.google.com"
+  "bestFit": {
+    "description": "A python module that finds the best fit lines for a set of data points. Originally made for a geography project.",
+    "tags": ["matplotlib", "numpy"],
+    "image": "projects/bestfit.png",
+    "redirect": "https://pypi.org/project/bestFit/"
   },
-  "test_project4": {
-    "description": "A test project for the endpoint",
-    "tags": ["test", "project"],
-    "image": "projects/placeholder.jpg",
-    "redirect": "http://www.google.com"
+  "Personal website (v2)": {
+    "description": "The website you're on! The most complex application I've made so far. Built with Flask (backend) and NextJS (frontend).",
+    "tags": ["NextJS", "Flask", "Docker"],
+    "image": "projects/websitev2.png",
+    "redirect": "https://sebassnoob.vercel.app/"
   },
-  "test_project5": {
-    "description": "A test project for the endpoint",
-    "tags": ["test", "project"],
-    "image": "projects/placeholder.jpg",
-    "redirect": "http://www.google.com"
+  "Spotify Snapshot": {
+    "description": "Website to take snapshots of your spotify listening history. Full authentication and authorization with Spotify.",
+    "tags": ["Flask", "Bootstrap"],
+    "image": "projects/spotsnapshot.png",
+    "redirect": "https://github.com/SebassNoob/SpotifySnapshot"
   },
-  "test_project6": {
-    "description": "A test project for the endpoint",
-    "tags": ["test", "project"],
-    "image": "projects/placeholder.jpg",
-    "redirect": "http://www.google.com"
+  "Personal website": {
+    "description": "The original version of this website, when I just started building. Made with Flask and raw html/css.",
+    "tags": ["Flask"],
+    "image": "projects/websitev1.png",
+    "redirect": "https://github.com/SebassNoob/SebassNoob"
   },
-  "test_project7": {
-    "description": "A test project for the endpoint",
-    "tags": ["test", "project"],
+  "More to come...": {
+    "description": "Working on something cool?",
+    "tags": ["your", "mother"],
     "image": "projects/placeholder.jpg",
-    "redirect": "http://www.google.com"
-  },
-  "test_project8": {
-    "description": "A test project for the endpoint",
-    "tags": ["test", "project"],
-    "image": "projects/placeholder.jpg",
-    "redirect": "http://www.google.com"
+    "redirect": "https://www.youtube.com/watch?v=xvFZjo5PgG0"
   }
 }
