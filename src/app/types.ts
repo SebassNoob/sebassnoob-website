@@ -1,5 +1,4 @@
-import React, {ForwardRefExoticComponent} from 'react';
-
+import React, { ForwardRefExoticComponent } from 'react';
 
 export interface JSXProps {
   children?: React.ReactNode;

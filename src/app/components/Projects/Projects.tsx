@@ -1,4 +1,12 @@
-import React, { forwardRef, useEffect, useState, useContext } from 'react';
+import React, {
+  forwardRef,
+  useEffect,
+  useState,
+  useContext,
+  useCallback,
+  useRef,
+  use,
+} from 'react';
 import { MediaQueryContext } from '@/app/Providers/MediaQueryProvider';
 import { Typography, IconButton } from '@mui/material';
 import getProjects from '@/app/api/Projects';
@@ -10,6 +18,7 @@ import './styles.css';
 export const Projects = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
   const [carouselItemIdx, setCarouselItemIdx] = useState(0);
   const [projects, setProjects] = useState<Project[]>([]);
+  const scene = useRef<HTMLDivElement>(null);
   const { breakpoints } = useContext(MediaQueryContext);
 
   const calculateCarousellItemOffset = (idx: number) => {
@@ -31,27 +40,59 @@ export const Projects = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
     const carousel = document.querySelector(
       '.projects-carousel',
     ) as HTMLElement;
-    while (idx < 0) {
-      idx = items.length - Math.abs(idx);
-    }
-    carousel.style.transform = `translateZ(-${radius}px) rotateY(-${
-      angle * idx
+
+    carousel.style.transform = `translateZ(-${radius}px) rotateY(${
+      -angle * idx
     }rad)`;
   };
 
-  useEffect(() => {
-    getProjects().then((res) => setProjects(res));
-
-    // debounce window resize then recalculate carousel item offset
-    let timeOutFunctionId: NodeJS.Timeout;
-
-    window.addEventListener('resize', () => {
+  const handleWindowResize = useCallback(
+    (timeOutFunctionId: NodeJS.Timeout) => {
       clearTimeout(timeOutFunctionId);
       timeOutFunctionId = setTimeout(() => {
         calculateCarousellItemOffset(carouselItemIdx);
       }, 400);
-    });
+    },
+    [carouselItemIdx],
+  );
+
+  const handleSelectedProjectChange = (idx: number) => {
+    if (carouselItemIdx >= 0) {
+      return idx === carouselItemIdx % projects.length;
+    } else {
+      return (
+        idx === projects.length - Math.abs(carouselItemIdx % projects.length)
+      );
+    }
+  };
+
+  useEffect(() => {
+    if (breakpoints.mobile) {
+      scene.current?.style.setProperty('--carousel-width', '75vw');
+      scene.current?.style.setProperty('--carousel-height', '50vh');
+      scene.current?.style.setProperty('--carousel-item-size', '0.8');
+    } else {
+      scene.current?.style.setProperty('--carousel-width', '85vw');
+      scene.current?.style.setProperty('--carousel-height', '40vh');
+      scene.current?.style.setProperty('--carousel-item-size', '0.9');
+    }
+  }, [breakpoints.mobile]);
+
+  useEffect(() => {
+    getProjects().then((res) => setProjects(res));
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    // debounce window resize then recalculate carousel item offset
+    let timeOutFunctionId: NodeJS.Timeout;
+    window.addEventListener('resize', () =>
+      handleWindowResize(timeOutFunctionId),
+    );
+    return () =>
+      window.removeEventListener('resize', () =>
+        handleWindowResize(timeOutFunctionId),
+      );
+  }, [carouselItemIdx]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(
     () => calculateCarousellItemOffset(carouselItemIdx),
@@ -73,32 +114,56 @@ export const Projects = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
             className='projects-carousel-controls-button'
             onClick={() => setCarouselItemIdx(carouselItemIdx - 1)}
           >
-            <ArrowLeftIcon />
+            <ArrowLeftIcon color='secondary' />
           </IconButton>
-          <div className='projects-carousel-scene'>
+          <div className='projects-carousel-scene' ref={scene}>
             <div className='projects-carousel'>
-              {
-                projects.map((project, idx) => (
-                  <div key={idx} onClick={() => window.open(project.redirect, "_blank")} className={idx === carouselItemIdx % projects.length ? 'projects-carousel-item projects-carousel-item-selected': 'projects-carousel-item'}>
-                    <div className='projects-carousel-item-content' >
-                      <project.image className='projects-carousel-item-img'/>
-                      <Typography className='title' color='secondary'>
-                        {project.title}
-                      </Typography>
-                      <Typography className='description less-important'>
+              {projects.map((project, idx) => (
+                <div
+                  key={idx}
+                  onClick={() => window.open(project.redirect, '_blank')}
+                  className={
+                    handleSelectedProjectChange(idx)
+                      ? 'projects-carousel-item projects-carousel-item-selected'
+                      : 'projects-carousel-item'
+                  }
+                >
+                  <div className='projects-carousel-item-content'>
+                    <project.image className='projects-carousel-item-img' />
+                    <div className='projects-carousel-item-text'>
+                      <div>
+                        <Typography className='subtitle' color='secondary'>
+                          {project.title}
+                        </Typography>
+                        <div className='projects-carousel-item-tag-container'>
+                          {project.tags.map((tag, idx) => (
+                            <Typography
+                              key={idx}
+                              className='projects-carousel-item-tag description '
+                            >
+                              {tag}
+                            </Typography>
+                          ))}
+                        </div>
+                      </div>
+
+                      <Typography
+                        className='description less-important'
+                        sx={{ marginTop: '2%' }}
+                      >
                         {project.description}
                       </Typography>
                     </div>
                   </div>
-                ))
-              }
+                </div>
+              ))}
             </div>
           </div>
           <IconButton
             className='projects-carousel-controls-button'
             onClick={() => setCarouselItemIdx(carouselItemIdx + 1)}
           >
-            <ArrowRightIcon />
+            <ArrowRightIcon color='secondary' />
           </IconButton>
         </div>
       </div>
