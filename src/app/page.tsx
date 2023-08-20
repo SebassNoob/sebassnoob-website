@@ -11,12 +11,15 @@ import {
   createTheme,
   StyledEngineProvider,
 } from '@mui/material/styles';
-import { useRef, useEffect, useState, use } from 'react';
+import { useRef, useEffect, useState, useContext } from 'react';
 
+import { MediaQueryContext } from '@/app/Providers/MediaQueryProvider';
 import { darkThemeOptions, lightThemeOptions } from './themes';
 
 export default function Home() {
-  const [isDark, setIsDark] = useState<boolean>(true);
+
+  const { theming } = useContext(MediaQueryContext);
+  const [isDark, setIsDark] = useState<boolean>(theming.darkMode);
   const theme = createTheme(isDark ? darkThemeOptions : lightThemeOptions);
   const body = useRef<HTMLDivElement>(null);
 

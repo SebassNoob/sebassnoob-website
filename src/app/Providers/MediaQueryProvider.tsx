@@ -7,6 +7,9 @@ const MediaQueryContext = createContext({
     tablet: false,
     desktop: false,
   },
+  theming : {
+    darkMode: true,
+  }
 });
 
 const MediaQueryProvider = ({ children }: { children: ReactNode }) => {
@@ -16,7 +19,11 @@ const MediaQueryProvider = ({ children }: { children: ReactNode }) => {
     desktop: useMediaQuery('(min-width: 1000px)'),
   };
 
-  const value = useMemo(() => ({ breakpoints }), [breakpoints]);
+  const theming = {
+    darkMode: useMediaQuery('(prefers-color-scheme: dark)'),
+  };
+
+  const value = useMemo(() => ({ breakpoints, theming }), [breakpoints]);
 
   return (
     <MediaQueryContext.Provider value={value}>
