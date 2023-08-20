@@ -21,12 +21,15 @@ interface NavbarProps extends JSXProps {
 }
 
 export const Navbar = forwardRef<HTMLDivElement, NavbarProps>((props, ref) => {
-
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [popoverOpen, setPopoverOpen] = useState<boolean>(false);
   const { breakpoints, theming } = useContext(MediaQueryContext);
-  
+
   const [isDark, setIsDark] = useState<boolean>(theming.darkMode);
+
+  useEffect(() => {
+    setIsDark(theming.darkMode);
+  }, [theming.darkMode]);
 
   useEffect(() => setPopoverOpen(false), [breakpoints.mobile]);
 
@@ -81,7 +84,7 @@ export const Navbar = forwardRef<HTMLDivElement, NavbarProps>((props, ref) => {
                     props.handleThemeChange();
                   }}
                 >
-                  {isDark ? <DarkModeIcon /> : <LightModeIcon />}
+                  {isDark ? <LightModeIcon /> : <DarkModeIcon />}
                 </IconButton>
               </div>
             </>

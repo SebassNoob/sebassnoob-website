@@ -7,9 +7,9 @@ const MediaQueryContext = createContext({
     tablet: false,
     desktop: false,
   },
-  theming : {
+  theming: {
     darkMode: true,
-  }
+  },
 });
 
 const MediaQueryProvider = ({ children }: { children: ReactNode }) => {
