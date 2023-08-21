@@ -13,3 +13,9 @@ export interface Project {
   redirect: URL;
   tags: string[];
 }
+
+export interface Skill {
+  title: string;
+  description: string;
+  images: ForwardRefExoticComponent<JSXProps>[];
+}
