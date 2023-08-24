@@ -2,5 +2,13 @@
   "Design": {
     "description": "test",
     "images": ["placeholder.jpg"]
+  },
+  "a": {
+    "description": "test",
+    "images": ["placeholder.jpg"]
+  },
+  "b": {
+    "description": "test",
+    "images": ["placeholder.jpg"]
   }
 }

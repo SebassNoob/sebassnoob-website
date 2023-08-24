@@ -6,6 +6,8 @@ export const getProjects = async () => {
     new URL(process.env.NEXT_PUBLIC_BACKEND_URL + '/api/get_all_projects'),
   );
 
+  if (!res.ok) throw new Error('Failed to fetch projects');
+
   const raw: Object = await res.json();
 
   const projects: Project[] = Object.entries(raw).map(([title, properties]) => {
