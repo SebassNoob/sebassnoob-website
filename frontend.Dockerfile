@@ -5,7 +5,7 @@ WORKDIR /app
 
 # Install dependencies based on the preferred package manager
 COPY --link package.json package-lock.json*  ./
-RUN npm ci; 
+RUN npm ci
 
 
 COPY --link src ./src
@@ -21,4 +21,4 @@ ENV NEXT_TELEMETRY_DISABLED 1
 # Note: Don't expose ports here, Compose will handle that for us
 
 #start the app
-CMD npm run dev; 
+CMD npm run dev

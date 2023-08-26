@@ -14,4 +14,4 @@ COPY --link service ./service
 RUN pip install --no-cache-dir --upgrade pip
 RUN pip install --no-cache-dir --default-timeout=100 -r ./requirements.txt
 
-CMD flask run  --host=0.0.0.0 -p 5000 --debug
+CMD flask run --host=0.0.0.0 -p 5000 --debug

@@ -9,6 +9,7 @@ fuckoff:
 
 run:
 	docker compose up -d
+	echo "DEV: goto http://localhost:3000"
 
 prettier:
 	npx prettier . --write

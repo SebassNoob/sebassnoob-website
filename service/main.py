@@ -23,7 +23,6 @@ def get_skills() -> dict:
 
       item[1]['description'] = res
 
-  # convert to dict
+  # convert from items to dict
   skills = dict(skills_items)
-  print(skills)
   return skills
