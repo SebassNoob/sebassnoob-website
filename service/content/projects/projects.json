@@ -5,7 +5,7 @@
     "image": "projects/annoybot.png",
     "redirect": "https://github.com/SebassNoob/bot"
   },
-  "Holy Grail (web)": {
+  "Holy Grail": {
     "description": "A website that indexes resources for students in Singapore. Huge team project with 8+ people.",
     "tags": ["FastApi", "Vite", "Docker"],
     "image": "projects/holygrail.png",

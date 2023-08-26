@@ -1,14 +1,14 @@
 {
-  "Design": {
-    "description": "test",
-    "images": ["placeholder.jpg"]
+  "Web development": {
+    "description": "webdev.md",
+    "images": ["next.png", "react.png", "photoshop.png"]
   },
-  "a": {
-    "description": "test",
-    "images": ["placeholder.jpg"]
+  "Building software": {
+    "description": "software.md",
+    "images": ["python.png", "java.png", "ts.png"]
   },
-  "b": {
-    "description": "test",
-    "images": ["placeholder.jpg"]
+  "DevSecOps": {
+    "description": "devsecops.md",
+    "images": ["docker.png", "linux.png"]
   }
 }

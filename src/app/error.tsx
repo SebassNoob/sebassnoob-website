@@ -3,7 +3,7 @@
 import { Button, Typography } from '@mui/material';
 import { useEffect } from 'react';
 
-// Renders during a runtime error 
+// Renders during a runtime error
 export default function Error({
   error,
   reset,

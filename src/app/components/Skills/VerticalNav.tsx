@@ -1,5 +1,5 @@
 import { JSXProps } from '@/app/types';
-import { forwardRef } from 'react';
+import { forwardRef, useEffect } from 'react';
 import './VerticalNav.css';
 import { SvgIconComponent } from '@mui/icons-material';
 import { Typography } from '@mui/material';
@@ -23,11 +23,13 @@ const VerticalNav = forwardRef<HTMLDivElement, VerticalNavProps>(
             <div
               key={idx}
               className={
-                child.active ? 'verticalnav-entry active' : 'verticalnav-entry'
+                child.active
+                  ? 'verticalnav-entry verticalnav-active'
+                  : 'verticalnav-entry'
               }
               onClick={child.onClick}
             >
-              <Typography className='title nerticalnav-label'>
+              <Typography className='button nerticalnav-label' noWrap>
                 {child.label}
               </Typography>
             </div>

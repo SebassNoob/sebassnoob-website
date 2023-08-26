@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
 
 import { PacmanLoader } from 'react-spinners';
-import { useContext, forwardRef, useEffect, useState } from 'react';
+import React, { useContext, forwardRef, useEffect, useState } from 'react';
 import './styles.css';
 import { JSXProps } from '@/app/types';
 import { MediaQueryContext } from '@/app/Providers/MediaQueryProvider';
@@ -12,6 +12,7 @@ import { Skill } from '@/app/types';
 export const Skills = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
   const { breakpoints } = useContext(MediaQueryContext);
   const [skills, setSkills] = useState<Skill[]>();
+  const [activeSkill, setActiveSkill] = useState<number>(0);
 
   useEffect(() => {
     getSkills()
@@ -25,16 +26,43 @@ export const Skills = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
     return {
       label: skill.title,
       onClick: () => {
-        console.log('clicked');
+        setActiveSkill(idx);
       },
-      active: false,
+      active: idx === activeSkill,
     };
   });
 
   return (
-    <div className={props.className} id={props.id} ref={ref}>
-      <PacmanLoader color='#66d3fa' size={200} />
-      <VerticalNav verticalNavProps={verticalNavProps!} />
+    <div
+      className={props.className + ' skills-content'}
+      id={props.id}
+      ref={ref}
+    >
+      <VerticalNav
+        className='verticalnav-content'
+        verticalNavProps={verticalNavProps!}
+      />
+      <div className='skills-description'>
+        {skills?.map((skill, idx) => (
+          <React.Fragment key={idx}>
+            {idx === activeSkill ? (
+              <>
+                <div className='skills-image-container'>
+                  {skill.images.map((Im, idx) => (
+                    <Im key={idx} className='skills-image' />
+                  ))}
+                </div>
+
+                <Typography className='subtitle' color='primary'>
+                  {skill.title}
+                </Typography>
+                <div className='description less-important' dangerouslySetInnerHTML={{__html: skill.description}}/>
+                  
+              </>
+            ) : null}
+          </React.Fragment>
+        ))}
+      </div>
     </div>
   );
 });

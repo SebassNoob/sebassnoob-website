@@ -11,6 +11,11 @@ body {
   margin: 0 !important;
 }
 
+strong {
+  font-weight: bold;
+  color: var(--secondary);
+}
+
 * {
   transition: all 0.2s ease-out;
 }

@@ -6,6 +6,8 @@ export const getSkills = async () => {
     new URL(process.env.NEXT_PUBLIC_BACKEND_URL + '/api/get_all_skills'),
   );
 
+  if (!res.ok) throw new Error('Failed to fetch skills');
+
   const raw: Object = await res.json();
 
   const projects: Skill[] = Object.entries(raw).map(([title, properties]) => {
