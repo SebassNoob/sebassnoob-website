@@ -106,7 +106,8 @@ export const Projects = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
           Projects
         </Typography>
         <Typography className='projects-description description less-important'>
-          Take a look at some of my projects. I'm always working on something new!
+          Take a look at some of my projects. I'm always working on something
+          new!
         </Typography>
 
         <div className='projects-carousel-container'>

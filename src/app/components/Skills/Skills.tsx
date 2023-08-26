@@ -1,6 +1,4 @@
-import { Typography } from '@mui/material';
-
-import { PacmanLoader } from 'react-spinners';
+import { Typography, Tabs, Tab } from '@mui/material';
 import React, { useContext, forwardRef, useEffect, useState } from 'react';
 import './styles.css';
 import { JSXProps } from '@/app/types';
@@ -43,19 +41,47 @@ export const Skills = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
           Skills
         </Typography>
         <Typography className='description less-important'>
-          Here are some things I've picked up over the years.
+          Here are some things I've picked up over the years. I'm always looking
+          to learn more!
         </Typography>
       </div>
-      <div className='skills-interactive-container'>
-        <VerticalNav
-          className='verticalnav-content'
-          verticalNavProps={verticalNavProps!}
-        />
+      <div
+        className={
+          breakpoints.mobile
+            ? 'skills-interactive-container'
+            : 'skills-interactive-container-mobile'
+        }
+      >
+        {breakpoints.mobile ? (
+          <VerticalNav
+            className='verticalnav-content'
+            verticalNavProps={verticalNavProps!}
+          />
+        ) : (
+          <>
+            <Tabs
+              className='skills-tabs'
+              value={activeSkill}
+              onChange={(e, newValue) => setActiveSkill(newValue)}
+              variant='scrollable'
+            >
+              {skills?.map((skill, idx) => (
+                <Tab
+                  key={idx}
+                  className='skills-tab'
+                  label={skill.title}
+                  value={idx}
+                />
+              ))}
+            </Tabs>
+          </>
+        )}
+
         <div className='skills-description'>
           {skills?.map((skill, idx) => (
             <React.Fragment key={idx}>
               {idx === activeSkill ? (
-                <>
+                <div className='skills-desciption-inner'>
                   <div className='skills-image-container'>
                     {skill.images.map((Im, idx) => (
                       <Im key={idx} className='skills-image' />
@@ -69,7 +95,7 @@ export const Skills = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
                     className='description less-important'
                     dangerouslySetInnerHTML={{ __html: skill.description }}
                   />
-                </>
+                </div>
               ) : null}
             </React.Fragment>
           ))}

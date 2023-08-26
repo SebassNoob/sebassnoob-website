@@ -7,9 +7,12 @@
 .skills-description {
   padding-left: 5%;
   flex-grow: 1;
+}
+.skills-desciption-inner {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
+  animation: load-in 0.3s;
 }
 
 .skills-image {
@@ -27,7 +30,19 @@
   margin-top: 3.5vh;
 }
 
-@media (max-width: 600px){
+.skills-interactive-container-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 2vh;
+}
+
+.skills-tab {
+  font-size: var(--subtitle-size);
+  text-transform: capitalize;
+}
+
+@media (max-width: 600px) {
   .skills-image {
     height: 10vh;
   }
