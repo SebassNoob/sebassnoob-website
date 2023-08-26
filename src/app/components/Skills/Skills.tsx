@@ -38,30 +38,42 @@ export const Skills = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
       id={props.id}
       ref={ref}
     >
-      <VerticalNav
-        className='verticalnav-content'
-        verticalNavProps={verticalNavProps!}
-      />
-      <div className='skills-description'>
-        {skills?.map((skill, idx) => (
-          <React.Fragment key={idx}>
-            {idx === activeSkill ? (
-              <>
-                <div className='skills-image-container'>
-                  {skill.images.map((Im, idx) => (
-                    <Im key={idx} className='skills-image' />
-                  ))}
-                </div>
+      <div>
+        <Typography className='title' color='primary'>
+          Skills
+        </Typography>
+        <Typography className='description less-important'>
+          Here are some things I've picked up over the years.
+        </Typography>
+      </div>
+      <div className='skills-interactive-container'>
+        <VerticalNav
+          className='verticalnav-content'
+          verticalNavProps={verticalNavProps!}
+        />
+        <div className='skills-description'>
+          {skills?.map((skill, idx) => (
+            <React.Fragment key={idx}>
+              {idx === activeSkill ? (
+                <>
+                  <div className='skills-image-container'>
+                    {skill.images.map((Im, idx) => (
+                      <Im key={idx} className='skills-image' />
+                    ))}
+                  </div>
 
-                <Typography className='subtitle' color='primary'>
-                  {skill.title}
-                </Typography>
-                <div className='description less-important' dangerouslySetInnerHTML={{__html: skill.description}}/>
-                  
-              </>
-            ) : null}
-          </React.Fragment>
-        ))}
+                  <Typography className='subtitle' color='primary'>
+                    {skill.title}
+                  </Typography>
+                  <div
+                    className='description less-important'
+                    dangerouslySetInnerHTML={{ __html: skill.description }}
+                  />
+                </>
+              ) : null}
+            </React.Fragment>
+          ))}
+        </div>
       </div>
     </div>
   );

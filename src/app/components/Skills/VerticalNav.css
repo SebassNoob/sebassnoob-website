@@ -1,0 +1,26 @@
+.verticalnav-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: flex-start;
+}
+.verticalnav-active {
+  box-shadow: inset 20vw 0 0 0 var(--secondary);
+  transform: translateX(2vw);
+}
+
+.verticalnav-active > .verticalnav-label {
+  color: black;
+}
+
+.verticalnav-entry {
+  border-radius: 10px;
+}
+
+.verticalnav-label {
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--primary);
+  text-transform: capitalize;
+  font-weight: 700;
+}

@@ -1,4 +1,4 @@
-- 1.5 years experience building websites with **React** using **Next.js** and **Vite**; and 3.5 years with pure **HTML**, **CSS** and **JS**. 
+- 1.5 years experience building websites with **React** using **Next.js** and **Vite**; and 3.5 years with pure **HTML**, **CSS** and **JS**.
 
 - ~2 years creating various forms of media -- from audio to image to video, with tools such as **Photoshop**, **VideoPad + SoundPad**, **SVGator** and many more!
 

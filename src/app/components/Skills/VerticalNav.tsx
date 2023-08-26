@@ -29,7 +29,7 @@ const VerticalNav = forwardRef<HTMLDivElement, VerticalNavProps>(
               }
               onClick={child.onClick}
             >
-              <Typography className='button nerticalnav-label' noWrap>
+              <Typography className='button verticalnav-label' noWrap>
                 {child.label}
               </Typography>
             </div>
