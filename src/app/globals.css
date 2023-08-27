@@ -9,6 +9,7 @@ body {
     'Helvetica Neue', Arial, sans-serif !important;
   background-color: rgb(10, 25, 47);
   margin: 0 !important;
+  overflow-x: hidden;
 }
 
 strong {

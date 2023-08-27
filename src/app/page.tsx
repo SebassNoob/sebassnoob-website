@@ -16,10 +16,11 @@ import { MediaQueryContext } from '@/app/Providers/MediaQueryProvider';
 import { darkThemeOptions, lightThemeOptions } from './themes';
 
 export default function Page() {
-  const { theming } = useContext(MediaQueryContext);
+  const { theming, breakpoints } = useContext(MediaQueryContext);
   const [isDark, setIsDark] = useState<boolean>(theming.darkMode);
   const theme = createTheme(isDark ? darkThemeOptions : lightThemeOptions);
   const body = useRef<HTMLDivElement>(null);
+  const blob = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsDark(theming.darkMode);
@@ -55,6 +56,26 @@ export default function Page() {
     return () => observer.disconnect();
   }, []);
 
+  const floatBlob = (e: MouseEvent) => {
+    blob.current?.animate(
+      {
+        left: `${e.clientX}px`,
+        top: `${e.clientY + window.scrollY}px`,
+      },
+      {
+        duration: 5000,
+        fill: 'forwards',
+      },
+    );
+  };
+
+  useEffect(() => {
+    if (blob.current && breakpoints.mobile) {
+      window.addEventListener('mousemove', floatBlob);
+    }
+    return () => window.removeEventListener('mousemove', floatBlob);
+  }, []);
+
   // set the margin-top of the body to the height of the navbar
   useEffect(() => {
     const height = (navBarRef.current?.childNodes[0] as HTMLDivElement)
@@ -85,6 +106,7 @@ export default function Page() {
     <ThemeProvider theme={theme}>
       <StyledEngineProvider injectFirst>
         <div className='page-container' ref={body}>
+          <div className='page-blob' ref={blob} />
           <Navbar
             ref={navBarRef}
             handleThemeChange={() => setIsDark(!isDark)}

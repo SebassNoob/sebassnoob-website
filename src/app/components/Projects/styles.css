@@ -57,7 +57,7 @@
   position: absolute;
   inset: 3%;
   border-radius: 10px;
-  background-color: var(--primary);
+  background-color: var(--less-important);
   overflow: hidden;
   z-index: -2;
   display: flex;
