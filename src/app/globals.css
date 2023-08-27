@@ -40,7 +40,7 @@ strong {
 .load-in {
   opacity: 0;
   animation: load-in 0.3s forwards ease-out;
-  animation-delay: 0.5s;
+  animation-delay: 0.3s;
 }
 
 @keyframes load-in {

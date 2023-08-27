@@ -5,7 +5,7 @@
 
 .page-blob {
   background-color: white;
-  height: 50vmax;
+  height: 60vmax;
   aspect-ratio: 1;
   position: absolute;
   left: 50%;
@@ -13,7 +13,7 @@
   translate: -50% -50%;
   border-radius: 50%;
   background: linear-gradient(to right, aquamarine, mediumpurple);
-  animation: rotate 20s infinite;
+  animation: rotate 30s infinite;
   opacity: 0.6;
   filter: blur(14vmax) brightness(0.8);
 }

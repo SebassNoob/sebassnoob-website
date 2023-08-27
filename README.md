@@ -3,7 +3,6 @@
 ![Vercel](https://vercelbadge.vercel.app/api/SebassNoob/sebassnoob-website)
 ![UptimeRobot](https://img.shields.io/uptimerobot/ratio/m795160693-40f9fffe08c09e60542ce090)
 
-
 A repo for my personal website (reworked). Written with Next.js and Flask. Deployed with Vercel.
 
 ### Setup (Dev)
@@ -33,8 +32,8 @@ To stop the container,
     make fuckoff
 ```
 
-### Deployment 
+### Deployment
 
-Vercel makes a new deploy on every push to the ``master`` branch. For manual deployment, ``make deploy``. 
+Vercel makes a new deploy on every push to the `master` branch. For manual deployment, `make deploy`.
 
-``vercel`` to create a preview build. Note that API/backend changes may fail unless you modify ``.env.production`` to a correct url.
+`vercel` to create a preview build. Note that API/backend changes may fail unless you modify `.env.production` to a correct url.

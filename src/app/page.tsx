@@ -74,7 +74,7 @@ export default function Page() {
       window.addEventListener('mousemove', floatBlob);
     }
     return () => window.removeEventListener('mousemove', floatBlob);
-  }, []);
+  }, [blob.current, breakpoints.mobile]);
 
   // set the margin-top of the body to the height of the navbar
   useEffect(() => {
