@@ -91,7 +91,7 @@ export const Navbar = forwardRef<HTMLDivElement, NavbarProps>((props, ref) => {
             </>
           ) : (
             <>
-              <IconButton onClick={handlePopover}>
+              <IconButton onClick={handlePopover} aria-label='menu'>
                 <DensityMediumIcon />
               </IconButton>
               <Popover

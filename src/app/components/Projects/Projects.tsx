@@ -114,6 +114,7 @@ export const Projects = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
           <IconButton
             className='projects-carousel-controls-button'
             onClick={() => setCarouselItemIdx(carouselItemIdx - 1)}
+            aria-label='previous'
           >
             <ArrowLeftIcon color='secondary' />
           </IconButton>
@@ -163,6 +164,7 @@ export const Projects = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
           <IconButton
             className='projects-carousel-controls-button'
             onClick={() => setCarouselItemIdx(carouselItemIdx + 1)}
+            aria-label='next'
           >
             <ArrowRightIcon color='secondary' />
           </IconButton>
