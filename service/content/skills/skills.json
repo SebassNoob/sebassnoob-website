@@ -1,14 +1,14 @@
 {
   "Web development": {
     "description": "webdev.md",
-    "images": ["next.png", "react.png", "photoshop.png"]
+    "images": ["skills/next.png", "skills/react.png", "skills/photoshop.png"]
   },
   "Building software": {
     "description": "software.md",
-    "images": ["python.png", "java.png", "ts.png"]
+    "images": ["skills/python.png", "skills/java.png", "skills/ts.png"]
   },
   "DevSecOps": {
     "description": "devsecops.md",
-    "images": ["docker.png", "linux.png"]
+    "images": ["skills/docker.png", "skills/linux.png"]
   }
 }
