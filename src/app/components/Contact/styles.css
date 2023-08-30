@@ -50,3 +50,20 @@
   height: 70%;
   color: var(--primary);
 }
+
+@media (max-width: 600px) {
+  .contact-inner {
+    display: flex;
+    flex-direction: column;
+  }
+  .contact-links {
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .contact-link {
+    max-height: 6vh;
+  }
+}

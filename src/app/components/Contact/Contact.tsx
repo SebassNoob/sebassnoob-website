@@ -1,6 +1,6 @@
 import './styles.css';
-import { Typography, Button } from '@mui/material';
-import { forwardRef, useEffect, useState, useRef } from 'react';
+import { Typography } from '@mui/material';
+import { forwardRef, useEffect, useState, useRef, useContext } from 'react';
 import ContactForm from './ContactForm';
 import { JSXProps } from '@/app/types';
 import {
@@ -12,6 +12,7 @@ import {
   faSpotify,
 } from '@fortawesome/free-brands-svg-icons';
 import ContactLink, { ContactLinkProps } from './ContactLink';
+import { MediaQueryContext } from '@/app/Providers/MediaQueryProvider';
 
 export interface ContactProps extends JSXProps {
   isDark: boolean;
@@ -21,6 +22,7 @@ export const Contact = forwardRef<HTMLDivElement, ContactProps>(
   (props, ref) => {
     const [isDark, setIsDark] = useState<boolean>(props.isDark);
     const contactContent = useRef<HTMLDivElement>(null);
+    const { breakpoints } = useContext(MediaQueryContext);
 
     useEffect(() => {
       setIsDark(props.isDark);
@@ -79,9 +81,12 @@ export const Contact = forwardRef<HTMLDivElement, ContactProps>(
           <div className='contact-inner'>
             <ContactForm className='contact-form' isDark={props.isDark} />
             <div className='contact-social'>
-              <Typography className='subtitle' color='secondary'>
-                My Socials!
-              </Typography>
+              {breakpoints.mobile ? (
+                <Typography className='subtitle' color='secondary'>
+                  My Socials!
+                </Typography>
+              ) : null}
+
               <div className='contact-links'>
                 {contactLinks.map((props, idx) => (
                   <ContactLink

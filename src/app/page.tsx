@@ -15,6 +15,7 @@ import { useRef, useEffect, useState, useContext } from 'react';
 
 import { MediaQueryContext } from '@/app/Providers/MediaQueryProvider';
 import { darkThemeOptions, lightThemeOptions } from './themes';
+import Footer from './components/Footer/Footer';
 
 export default function Page() {
   const { theming, breakpoints } = useContext(MediaQueryContext);
@@ -133,6 +134,7 @@ export default function Page() {
             className='hidden contact'
             id='contact'
           />
+          <Footer />
         </div>
       </StyledEngineProvider>
     </ThemeProvider>

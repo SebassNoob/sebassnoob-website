@@ -5,7 +5,7 @@
   gap: 2vh;
   background-color: rgba(var(--bg-col), 0.2);
 
-  box-shadow: -11px 15px 30px -10px rgba(var(--bg-col), 0.7);
+  box-shadow: -7px 10px 30px -10px rgba(var(--bg-col), 0.7);
   border-radius: 10px;
 }
 

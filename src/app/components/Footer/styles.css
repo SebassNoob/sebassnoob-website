@@ -1,0 +1,10 @@
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  padding: 2%;
+}
+
+.footer-open-source a {
+  color: var(--secondary);
+  text-decoration: none;
+}
