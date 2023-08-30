@@ -3,9 +3,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2vh;
-  background-color: rgba(var(--bg-col), 0.2);
+  background-color: rgba(var(--sectional-color), 0.2);
 
-  box-shadow: -7px 10px 30px -10px rgba(var(--bg-col), 0.7);
+  box-shadow: -7px 10px 30px -10px rgba(var(--sectional-color), 0.7);
   border-radius: 10px;
 }
 

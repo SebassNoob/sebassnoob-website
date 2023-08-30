@@ -3,6 +3,12 @@
   flex-direction: column;
   gap: 0.5rem;
   justify-content: flex-start;
+  background-color: rgba(var(--sectional-color), 0.2);
+  border-radius: 10px;
+  box-shadow: -5px 8px 10px -10px rgba(var(--sectional-color), 0.7);
+  padding: 2vw 3.5vw 2vw 0.5vw;
+  min-height: 0;
+  height: 100%;
 }
 .verticalnav-active {
   box-shadow: inset 20vw 0 0 0 var(--secondary);

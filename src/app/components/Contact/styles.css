@@ -23,9 +23,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2%;
-  background-color: rgba(var(--bg-col), 0.2);
+  background-color: rgba(var(--sectional-color), 0.2);
   border-radius: 10px;
-  box-shadow: -10px 8px 10px -8px rgba(var(--bg-col), 0.7);
+  box-shadow: -7px 6px 10px -8px rgba(var(--sectional-color), 0.7);
   padding: 2%;
 }
 

@@ -32,7 +32,7 @@ To stop the container,
     make fuckoff
 ```
 
-Lint with ``make lint``. You may modify ``eslintrc.json`` to change up the rules of eslint.
+Lint with `make lint`. You may modify `eslintrc.json` to change up the rules of eslint.
 
 ### Deployment
 

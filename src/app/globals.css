@@ -30,6 +30,7 @@ svg {
   --secondary: rgb(100, 255, 218);
   --less-important: lightgrey;
   --background-color: rgb(10, 25, 47);
+  --sectional-color: 255, 255, 255;
   --rand: 0.5; /* Math.random() */
 
   --title-size: 5rem;

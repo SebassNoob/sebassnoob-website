@@ -92,6 +92,7 @@ export default function Page() {
       body.current?.style.setProperty('--secondary', 'rgb(100, 255, 218)');
       body.current?.style.setProperty('--less-important', 'lightgrey');
       body.current?.style.setProperty('--background-color', 'rgb(10, 25, 47)');
+      body.current?.style.setProperty('--sectional-color', '255, 255, 255');
     } else {
       document.body.style.backgroundColor = 'rgb(255, 255, 255)';
       body.current?.style.setProperty('--primary', 'rgb(0,0,0)');
@@ -101,6 +102,7 @@ export default function Page() {
         '--background-color',
         'rgb(255, 255, 255)',
       );
+      body.current?.style.setProperty('--sectional-color', '128, 128, 128');
     }
   }, [isDark]);
 

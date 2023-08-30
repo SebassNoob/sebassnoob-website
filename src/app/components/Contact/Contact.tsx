@@ -1,6 +1,6 @@
 import './styles.css';
 import { Typography } from '@mui/material';
-import { forwardRef, useEffect, useState, useRef, useContext } from 'react';
+import { forwardRef, useContext } from 'react';
 import ContactForm from './ContactForm';
 import { JSXProps } from '@/app/types';
 import {
@@ -20,21 +20,7 @@ export interface ContactProps extends JSXProps {
 
 export const Contact = forwardRef<HTMLDivElement, ContactProps>(
   (props, ref) => {
-    const [isDark, setIsDark] = useState<boolean>(props.isDark);
-    const contactContent = useRef<HTMLDivElement>(null);
     const { breakpoints } = useContext(MediaQueryContext);
-
-    useEffect(() => {
-      setIsDark(props.isDark);
-    }, [props.isDark]);
-
-    useEffect(() => {
-      if (isDark) {
-        contactContent.current?.style.setProperty('--bg-col', '255, 255, 255');
-      } else {
-        contactContent.current?.style.setProperty('--bg-col', '128, 128, 128');
-      }
-    }, [isDark]);
 
     const contactLinks: ContactLinkProps[] = [
       {
@@ -71,7 +57,7 @@ export const Contact = forwardRef<HTMLDivElement, ContactProps>(
 
     return (
       <div ref={ref} className={props.className} id={props.id}>
-        <div className='contact-content' ref={contactContent}>
+        <div className='contact-content'>
           <Typography className='title' color='primary'>
             Let's talk!
           </Typography>
@@ -79,7 +65,7 @@ export const Contact = forwardRef<HTMLDivElement, ContactProps>(
             Send an email or get in touch with me on social media.
           </Typography>
           <div className='contact-inner'>
-            <ContactForm className='contact-form' isDark={props.isDark} />
+            <ContactForm className='contact-form' />
             <div className='contact-social'>
               {breakpoints.mobile ? (
                 <Typography className='subtitle' color='secondary'>

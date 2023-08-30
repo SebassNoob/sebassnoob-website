@@ -2,9 +2,9 @@ import './ContactForm.css';
 import { Typography, TextField, Button } from '@mui/material';
 import { forwardRef, useContext, useEffect, useRef, useState } from 'react';
 import { MediaQueryContext } from '@/app/Providers/MediaQueryProvider';
-import { ContactProps } from './Contact';
+import { JSXProps } from '@/app/types';
 
-export const ContactForm = forwardRef<HTMLDivElement, ContactProps>(
+export const ContactForm = forwardRef<HTMLDivElement, JSXProps>(
   (props, ref) => {
     // form change states
     const [name, setName] = useState<string>('');
