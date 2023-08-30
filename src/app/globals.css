@@ -17,7 +17,11 @@ strong {
   color: var(--secondary);
 }
 
-* {
+svg {
+  fill: var(--primary);
+}
+/* apply smooth transition as default evcept for mui popper */
+*:not([class*='popper']) {
   transition: all 0.2s ease-out;
 }
 
@@ -31,6 +35,8 @@ strong {
   --title-size: 5rem;
   --subtitle-size: 2rem;
   --description-size: 1rem;
+  overflow: hidden;
+  position: relative;
 }
 
 .hidden {

@@ -40,9 +40,8 @@ export const Skills = forwardRef<HTMLDivElement, JSXProps>((props, ref) => {
         <Typography className='title' color='primary'>
           Skills
         </Typography>
-        <Typography className='description less-important'>
-          Here are some things I've picked up over the years. I'm always looking
-          to learn more!
+        <Typography className='subtitle less-important'>
+          Here are some things I've picked up over the years.
         </Typography>
       </div>
       <div

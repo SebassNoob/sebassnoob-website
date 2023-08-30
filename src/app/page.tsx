@@ -5,6 +5,7 @@ import Landing from './components/Landing/Landing';
 import Skills from './components/Skills/Skills';
 import Projects from './components/Projects/Projects';
 import Navbar from './components/Navbar/Navbar';
+import Contact from './components/Contact/Contact';
 import {
   ThemeProvider,
   createTheme,
@@ -74,7 +75,7 @@ export default function Page() {
       window.addEventListener('mousemove', floatBlob);
     }
     return () => window.removeEventListener('mousemove', floatBlob);
-  }, [blob.current, breakpoints.mobile]);
+  }, [breakpoints.mobile]);
 
   // set the margin-top of the body to the height of the navbar
   useEffect(() => {
@@ -125,6 +126,12 @@ export default function Page() {
             ref={(elem) => fadeInRefs.current.push(elem)}
             className='hidden projects'
             id='projects'
+          />
+          <Contact
+            ref={(elem) => fadeInRefs.current.push(elem)}
+            isDark={isDark}
+            className='hidden contact'
+            id='contact'
           />
         </div>
       </StyledEngineProvider>

@@ -1,5 +1,6 @@
 .landing,
-.skills {
+.skills,
+.contact {
   overflow: hidden;
 }
 
@@ -15,7 +16,7 @@
   background: linear-gradient(to right, aquamarine, mediumpurple);
   animation: rotate 30s infinite;
   opacity: 0.6;
-  filter: blur(14vmax) brightness(0.8);
+  filter: blur(14vmax) brightness(0.7);
 }
 
 @keyframes rotate {
