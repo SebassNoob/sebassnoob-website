@@ -17,6 +17,8 @@
   animation: rotate 30s infinite;
   opacity: 0.6;
   filter: blur(14vmax) brightness(0.7);
+  pointer-events: none;
+  z-index: -1;
 }
 
 @keyframes rotate {
