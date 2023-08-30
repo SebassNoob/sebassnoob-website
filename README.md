@@ -10,7 +10,7 @@ A repo for my personal website (reworked). Written with Next.js and Flask. Deplo
 Prerequisites:
 
 ```
-    python >=3.11
+    python <= 3.11
     typescript
     make
     docker compose
@@ -31,6 +31,8 @@ To stop the container,
 ```
     make fuckoff
 ```
+
+Lint with ``make lint``. You may modify ``eslintrc.json`` to change up the rules of eslint.
 
 ### Deployment
 
