@@ -17,4 +17,4 @@ pre-commit==3.3.3
 python-dotenv==1.0.0
 PyYAML==6.0
 virtualenv==20.23.1
-Werkzeug==2.3.6
+Werkzeug==3.0.1
