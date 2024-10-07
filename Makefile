@@ -9,7 +9,7 @@ fuckoff:
 
 run:
 	docker compose up -d
-	echo "DEV: goto http://localhost:3000"
+	echo "DEV: goto http://localhost:3002"
 
 prettier:
 	npx prettier . --write
@@ -19,3 +19,8 @@ lint:
 
 deploy:
 	vercel --prod --yes 
+
+prod:
+	docker compose --project-name $(APP_NAME) -f docker-compose.prod.yml build --no-cache
+	docker compose -f docker-compose.prod.yml up --prune
+	echo: 'PROD: goto http://localhost:3002'
